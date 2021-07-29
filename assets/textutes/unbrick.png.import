@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stairs.png-f29c455d7ced8ee7a707774e1627caaa.stex"
+path="res://.import/unbrick.png-fe01bce7fe301558b65596aef3b50e0f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textutes/stairs.png"
-dest_files=[ "res://.import/stairs.png-f29c455d7ced8ee7a707774e1627caaa.stex" ]
+source_file="res://assets/textutes/unbrick.png"
+dest_files=[ "res://.import/unbrick.png-fe01bce7fe301558b65596aef3b50e0f.stex" ]
 
 [params]
 

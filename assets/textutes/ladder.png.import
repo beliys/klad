@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/unbrekbox.png-c39ef6f86dd01f8a83a515f03d0d9659.stex"
+path="res://.import/ladder.png-bb5f192b850051d709aa69429a73ca73.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textutes/unbrekbox.png"
-dest_files=[ "res://.import/unbrekbox.png-c39ef6f86dd01f8a83a515f03d0d9659.stex" ]
+source_file="res://assets/textutes/ladder.png"
+dest_files=[ "res://.import/ladder.png-bb5f192b850051d709aa69429a73ca73.stex" ]
 
 [params]
 

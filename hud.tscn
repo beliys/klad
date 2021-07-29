@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/KellySlab-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+outline_size = 1
+extra_spacing_char = 5
+font_data = SubResource( 1 )
+
+[node name="hud" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="lbl_treasures" type="Label" parent="CanvasLayer"]
+margin_left = 790.967
+margin_top = 975.0
+margin_right = 1061.97
+margin_bottom = 1072.0
+custom_fonts/font = SubResource( 2 )
+text = "Кладов:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbl_treasures_score" type="Label" parent="CanvasLayer"]
+margin_left = 1108.66
+margin_top = 975.0
+margin_right = 1277.66
+margin_bottom = 1072.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}

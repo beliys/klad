@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 10
+const SPEED = 264
 const FLOOR = Vector2(0, -1)
 const GRAVITY = 970
 
@@ -31,7 +31,7 @@ func _physics_process(delta):
 		var id = tilemap.get_cellv(map_pos)
 		if id > -1:
 			print(tilemap.get_tileset().tile_get_name(id))
-			if tilemap.get_tileset().tile_get_name(id) == "ladder":
+			if tilemap.get_tileset().tile_get_name(id) == "ladder" or tilemap.get_tileset().tile_get_name(id) == "hidden_ladder":
 				on_ladder = true
 			else:
 				on_ladder = false
@@ -41,7 +41,7 @@ func _physics_process(delta):
 		else:
 			on_ladder = false
 	if Input.is_action_pressed("ui_right"):
-		velocity.x = SPEED * tile_size_x / 2 
+		velocity.x = SPEED
 		$AnimatedSprite.flip_h = false
 		#$Position2D.position.x = abs($Position2D.position.x)
 		if on_ladder:
@@ -52,7 +52,7 @@ func _physics_process(delta):
 			velocity.x = 0
 			$AnimatedSprite.play("fall")
 	elif Input.is_action_pressed("ui_left"):
-		velocity.x = -SPEED  * tile_size_x / 2
+		velocity.x = -SPEED
 		$AnimatedSprite.flip_h = true
 		#$Position2D.position.x = abs($Position2D.position.x) * -1
 		if on_ladder:
@@ -64,7 +64,7 @@ func _physics_process(delta):
 			$AnimatedSprite.play("fall")
 	elif Input.is_action_pressed("ui_up"):
 		if on_ladder:
-			velocity.y = -SPEED  * tile_size_y / 2
+			velocity.y = -SPEED
 			$AnimatedSprite.flip_h = false
 			$AnimatedSprite.play("climb")
 			#$Position2D.position.x = abs($Position2D.position.x) * -1
@@ -74,7 +74,7 @@ func _physics_process(delta):
 			$AnimatedSprite.play("fall")
 	elif Input.is_action_pressed("ui_down"):
 		if on_ladder:
-			velocity.y = SPEED * tile_size_y / 2
+			velocity.y = SPEED
 			$AnimatedSprite.flip_h = false
 			$AnimatedSprite.play("climb")
 			#$Position2D.position.x = abs($Position2D.position.x) * -1
@@ -103,6 +103,17 @@ func _physics_process(delta):
 
 	if not on_ladder:
 		velocity.y += (GRAVITY * delta)
+		#print(velocity)
+		velocity = Vector2(round_to_tile_center(velocity.x,tile_size_x),round_to_tile_center(velocity.y,tile_size_y))
+		#print(velocity)
 		velocity = move_and_slide(velocity, FLOOR)
 	else:
+		#print(velocity)
+		velocity = Vector2(round_to_tile_center(velocity.x,tile_size_x),round_to_tile_center(velocity.y,tile_size_y))
+		#print(velocity)
 		velocity = move_and_slide(velocity)
+
+func round_to_tile_center(f: float, i: int) -> int:
+	var v = int((f / i) * i)
+	print(v)
+	return v
